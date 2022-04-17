@@ -32,10 +32,6 @@ import { NTabPane } from 'naive-ui'
     </n-tabs>
   </n-card>
 
-	<router-link to='/'> page1</router-link>
-	<router-link to='/page2'>page2 </router-link>
-	<router-view></router-view>
-
 </template>
 
 <style>
