@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [vue()],
   server: {			
     host: '0.0.0.0',	// 本机的局域网IP
-    port: '3000',  // 端口号，一般情况下为8080
+    port: '80',  // 端口号，一般情况下为8080
   }
 })

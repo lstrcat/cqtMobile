@@ -1,17 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory  } from 'vue-router'
  
-const routerHistory = createWebHistory()
+const routerHistory = createWebHashHistory ()
  
+const page1 = () => import("../views/page1.vue")
+const page2 = () => import("../views/page2.vue")
+const home = () => import("../views/home.vue")
+const login = () => import("../views/login.vue")
+
 const router = createRouter({
   history: routerHistory,
   routes: [
     {
+      path: '/',
+      // 当访问 '/'的时候 路由重定向 到新的地址 '/home'
+      redirect: '/home'
+    },  
+    {
       path: '/page1',
-      component: () => import('../views/page1.vue')
+      component: page1
     },
     {
       path: '/page2',
-      component: () => import('../views/page2.vue')
+      component: page2
+    },
+    {
+      path: '/home',
+      component: home
+    },
+    {
+      path: '/login',
+      component: login
     }
   ]
 })

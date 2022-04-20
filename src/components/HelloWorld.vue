@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 import { NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
-import { NCard, NIcon, NDivider, NImage} from 'naive-ui'
+import { NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem} from 'naive-ui'
+import Login from '../views/login.vue'
 
 defineProps({
   msg: String
 })
 
 const count = ref(0)
+
 </script>
 
 <template>
@@ -17,8 +19,9 @@ const count = ref(0)
     src="./src/assets/diamond1.png"
   />
 
+
 	<router-link style="text-decoration:none;" to='/page1'>
-    <n-card>
+    <n-card :bordered="false" content-style="padding: 0;" header-style="padding: 0;">
     <n-layout>
       <n-layout-header>我们的优势</n-layout-header>
       <n-layout has-sider>
@@ -36,7 +39,7 @@ const count = ref(0)
   </router-link>
   <n-divider />
 	<router-link style="text-decoration:none;" to='/page2'>
-    <n-card>
+    <n-card :bordered="false" content-style="padding: 0;" header-style="padding: 0;">
     <n-layout>
       <n-layout-header>关于我们</n-layout-header>
       <n-layout has-sider>
@@ -55,6 +58,13 @@ const count = ref(0)
 
 	<router-view></router-view>
 
+
+  <n-card title="证书详情">
+    <template #cover>
+      <img src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg">
+    </template>
+    
+  </n-card>
 </template>
 
 <style scoped>
