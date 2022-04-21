@@ -6,42 +6,41 @@
     <div class="info">
       <div class="article-title">{{ article && article.title }}</div>
       <div class="article-time">{{ formatTime }}</div>
-      <div class="article-content">{{ brief }}</div>
+      <div class="article-content">
+          <n-ellipsis expand-trigger="click" line-clamp="2" :tooltip="false">
+          {{ article.content }}
+          </n-ellipsis>
+        </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue'
+import { NEllipsis } from 'naive-ui'
 
-export default {
-  name: 'Article',
   // 接收父组件传来的 article 对象
-  props: {
-    article: Object
-  },
 
-    setup (props) {
+    const props = defineProps({
+        article : {}
+    })
 
-        const formatTime = computed(() => {
-           
-                const dt = new Date(props.article.time)
-                const month = dt.getMonth()
-                const date = dt.getDate()
-                console.log("月",month)
-                console.log("日",date)
+    const formatTime = computed(() => {
+    
+        const dt = new Date(props.article.time)
+        const month = dt.getMonth()
+        const date = dt.getDate()
+        console.log("月",month)
+        console.log("日",date)
 
-                return month + '月' + date + '日'
-            
-        })
+        return month + '月' + date + '日'
+    
+})
 
-        const brief = computed(() => {
-            return props.article.content.substr(0, 35) + '...';
-        })
+const brief = computed(() => {
+    return props.article.content.substr(0, 35) + '...';
+})  
 
-        return { formatTime, brief }
-    }
-}
 </script>
 
 <style lang="scss" scoped>
