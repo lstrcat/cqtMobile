@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
-import { NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem} from 'naive-ui'
-import Login from '../views/login.vue'
+import { NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel} from 'naive-ui'
 
 defineProps({
   msg: String
@@ -14,10 +13,27 @@ const count = ref(0)
 
 <template>
 
-  <n-image
-    width="250"
-    src="./src/assets/diamond1.png"
-  />
+  <n-image 
+  width="250"
+  src="./src/assets/xcxm.jpg"
+  >
+
+  </n-image>
+
+<n-carousel autoplay>
+    <img
+      class="carousel-img"
+      src="/src/assets/diamond1.png"
+    >
+    <img
+      class="carousel-img"
+      src="/src/assets/diamond2.png"
+    >
+    <img
+      class="carousel-img"
+      src="/src/assets/diamond3.png"
+    >
+  </n-carousel>
 
 
 	<router-link style="text-decoration:none;" to='/page1'>
@@ -89,5 +105,11 @@ a {
 
 .n-layout-content {
   text-align: right;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 </style>

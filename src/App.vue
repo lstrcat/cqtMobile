@@ -2,6 +2,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
+import Baike from './components/Baike.vue'
+import Contact from './components/Contact.vue'
 import { NButton } from 'naive-ui'
 import { NCard } from 'naive-ui'
 import { NTabs } from 'naive-ui'
@@ -24,10 +26,10 @@ import { NTabPane } from 'naive-ui'
         <HelloWorld msg="Hello Vue 3 + Vite" />
       </n-tab-pane>
       <n-tab-pane name="the beatles" tab="科普百科">
-        Hey Jude
+        <Baike />
       </n-tab-pane>
       <n-tab-pane name="jay chou" tab="联系我们">
-        七里香
+        <Contact />
       </n-tab-pane>
     </n-tabs>
   </n-card>
