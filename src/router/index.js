@@ -2,8 +2,9 @@ import { createRouter, createWebHashHistory  } from 'vue-router'
  
 const routerHistory = createWebHashHistory ()
  
-const page1 = () => import("../views/page1.vue")
-const page2 = () => import("../views/page2.vue")
+const jianjie = () => import("../views/briefInts.vue")
+const zhengshu = () => import("../views/certs.vue")
+const claim = () =>import("../views/claim.vue")
 const home = () => import("../views/home.vue")
 const login = () => import("../views/login.vue")
 
@@ -16,12 +17,16 @@ const router = createRouter({
       redirect: '/home'
     },  
     {
-      path: '/page1',
-      component: page1
+      path: '/brief',
+      component: jianjie
     },
     {
-      path: '/page2',
-      component: page2
+      path: '/certs',
+      component: zhengshu
+    },
+    {
+      path: '/claim',
+      component: claim
     },
     {
       path: '/home',

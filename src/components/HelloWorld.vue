@@ -7,6 +7,9 @@ defineProps({
   msg: String
 })
 
+const getAssetsImage = (name) => {
+  return new URL(`/src/assets/${name}`, import.meta.url).href
+}
 const count = ref(0)
 
 </script>
@@ -72,15 +75,19 @@ const count = ref(0)
     </n-card>
   </router-link>
 
-	<router-view></router-view>
 
 
-  <n-card title="证书详情">
-    <template #cover>
-      <img src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg">
-    </template>
+  <div class="card">
+      <div class="card-label">证书样式</div>
+      <n-image
+        width="300"
+        height="150"
+        object-fit="cover"
+        :src= "getAssetsImage('yang.png')"
+      />      
+  </div>  
     
-  </n-card>
+ 
 </template>
 
 <style scoped>
@@ -111,5 +118,26 @@ a {
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+.n-card {
+  max-height: 200px;
+}
+.card{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius:10px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 0 6px rgba(18, 133, 96, 0.12);
+}
+.card-label {
+    position: absolute;
+    padding: 20px;
+    height: 30px;
+    color: #94aea5;
+    display: flex;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
 }
 </style>
