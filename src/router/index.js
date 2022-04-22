@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/',
       // 当访问 '/'的时候 路由重定向 到新的地址 '/home'
-      redirect: '/home'
+      redirect: '/brief'
     },  
     {
       path: '/brief',
