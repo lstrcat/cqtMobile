@@ -34,12 +34,11 @@ import { NEllipsis } from 'naive-ui'
         console.log("日",date)
 
         return month + '月' + date + '日'
-    
-})
+    })
 
-const brief = computed(() => {
-    return props.article.content.substr(0, 35) + '...';
-})  
+    const brief = computed(() => {
+        return props.article.content.substr(0, 35) + '...';
+    })  
 
 </script>
 

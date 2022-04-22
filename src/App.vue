@@ -2,6 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
+import Cqt from './components/Cqt.vue'
 import Baike from './components/Baike.vue'
 import Contact from './components/Contact.vue'
 import { NButton } from 'naive-ui'
@@ -21,9 +22,12 @@ import { NTabPane } from 'naive-ui'
   <p class="title">珠宝检测 · 中检质技</p>
 
   <n-card title="" style="margin-bottom: 16px">
-    <n-tabs default-value="oasis" justify-content="space-evenly" type="line">
-      <n-tab-pane name="oasis" tab="认识CQT">
+    <n-tabs default-value="home" justify-content="space-evenly" type="line">
+      <n-tab-pane name="home" tab="主页">
         <HelloWorld msg="Hello Vue 3 + Vite" />
+      </n-tab-pane>      
+      <n-tab-pane name="oasis" tab="认识CQT">
+        <Cqt />
       </n-tab-pane>
       <n-tab-pane name="the beatles" tab="科普百科">
         <Baike />
