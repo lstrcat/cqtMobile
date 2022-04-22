@@ -18,7 +18,7 @@ const count = ref(0)
 
   <n-image 
   width="250"
-  src="./src/assets/xcxm.jpg"
+  :src="getAssetsImage('xcxm.jpg')"
   >
 
   </n-image>

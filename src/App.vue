@@ -21,7 +21,7 @@ import { NTabPane } from 'naive-ui'
  
   <p class="title">珠宝检测 · 中检质技</p>
 
-  <n-card title="" style="margin-bottom: 16px">
+  <n-card :bordered="false" title="" style="margin-bottom: 16px">
     <n-tabs default-value="home" justify-content="space-evenly" type="line">
       <n-tab-pane name="home" tab="主页">
         <HelloWorld msg="Hello Vue 3 + Vite" />
