@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import { NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
-import { NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel} from 'naive-ui'
+import { NModal,NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
+import { NInput,NButton,NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel, NGrid, NGridItem,NGi} from 'naive-ui'
+import { apiGetZsInfo } from '../api/zhenghu'
 
 defineProps({
   msg: String
@@ -11,10 +12,104 @@ const getAssetsImage = (name) => {
   return new URL(`/src/assets/${name}`, import.meta.url).href
 }
 const count = ref(0)
+const showModal = ref(false)
+const showModalZhengshu = ref(false)
+const rnumber = ref(null)
+
+function sub2sub(data, s1, s2) {
+    let n1 = data.indexOf(s1)
+    if(n1 > 0) {
+    let n2 = data.indexOf(s2, n1 + s1.length)
+      if(n2 > 0){
+        let cc = data.substring(n1,n2)
+      //  console.log(cc)
+        let suffix = "<td style=\"text-align:center;\">"
+        let ns = cc.indexOf(suffix)
+        if(ns > 0) {
+          let result = cc.substr(ns + suffix.length, cc.length - ns - suffix.length)
+        //  console.log(result)
+          return result
+        }
+      }
+    }
+    return ""
+}
+
+function decQueryResult(data) {
+  let Conclusion = sub2sub(data,"Conclusion</td>","</td>")
+  let ReportNumber = sub2sub(data,"Report Number</td>","</td>")
+  let Mass = sub2sub(data,"Total Mass</td>","</td>")
+  let RefIndex = sub2sub(data,"Refractive index</td>","</td>")
+  let Magnif = sub2sub(data,"Magnification Test</td>","</td>")
+  let OptChara = sub2sub(data,"Optical Characteristics</td>","</td>")
+  let Mark = sub2sub(data,"Mark</td>","</td>")
+  let Remarks = sub2sub(data,"Remarks</td>","</td>")
+  let auther = sub2sub(data,"Authorizer</td>","</td>")
+
+  return { 
+    Conclusion: Conclusion, 
+    ReportNumber: ReportNumber,
+    Mass: Mass,
+    RefIndex: RefIndex,
+    Magnif: Magnif,
+    OptChara: OptChara,
+    Mark: Mark,
+    Remarks: Remarks,
+    auther: auther
+    }
+}
+
+const queryNumber = () => {
+
+
+  let param = { "u": "xg.m." + rnumber.value}
+  console.log(param)
+
+  apiGetZsInfo(param).then((res) => {
+		
+    let data = res
+    let obj = decQueryResult(data)
+    console.log(obj)
+	})
+}
 
 </script>
 
 <template>
+  <n-modal v-model:show="showModal">
+    <n-card
+      title="证书查询"
+      :bordered="false"
+      role="dialog"
+      aria-modal="true"
+    >
+      <n-input v-model:value="rnumber" type="text" placeholder="输入证书编号" />
+      <template #footer>
+        <n-button @click="queryNumber">查询</n-button>
+      </template>
+    </n-card>
+  </n-modal>
+
+  <div class="cards">
+  <n-grid x-gap="0" :cols="2">
+    <n-gi>
+      <div class="cardbtn">
+          <n-button @click="showModal = true">
+            证书查询
+          </n-button>
+      </div>
+    </n-gi>
+    <n-gi>
+      <div class="cardbtn">
+          <n-button @click="showModal = true">
+            在线送检
+          </n-button>        
+      </div>
+    </n-gi>
+  </n-grid>
+  </div>
+
+
 
   <n-image 
   width="250"
@@ -121,6 +216,16 @@ a {
 }
 .n-card {
   max-height: 200px;
+}
+.cards{
+  margin: 20px;
+}
+.cardbtn{
+  width: 140px;
+  height: 80px;
+  border-radius:10px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 0 6px rgba(18, 133, 96, 0.12);  
 }
 .card{
   margin-top: 10px;
