@@ -21,34 +21,28 @@ const getAssetsImage = (name) => {
         />
         <div class="gline"></div>
         <p></p>
-  <n-grid x-gap="2" :cols="2">
-    <n-gi>
-      <div class="light-green">
-        <n-image
-          width="110"
-          :src= "getAssetsImage('syrz.png')"
-        />
-      </div>
-    </n-gi>
-    <n-gi>
-      <div class="light-green">
-        <n-image
-        width="110"
-          :src= "getAssetsImage('syrzen.png')"
-        />
-      </div>
-    </n-gi>
-  </n-grid>
 
-
-
+        <div class="parent">
+          <div class="son1">
+            <n-image
+              width="110"
+              :src= "getAssetsImage('syrz.png')"
+            />
+          </div>
+          <div class="son2">
+            <n-image
+            width="110"
+              :src= "getAssetsImage('syrzen.png')"
+            />
+          </div>
+        </div>
 
     </div>
 </template>
 
 <style scoped>
 .content{
-    background: #f3f3f3;
+    background: #f5f5f5;
     border-radius:15px;
     padding: 20px;
 }
@@ -62,11 +56,29 @@ const getAssetsImage = (name) => {
     background:linear-gradient(to left,#f3f3f3,#d8E6b6,#f3f3f3);
 }
 .light-green {
-  padding: 4px;
   background-color: #eeeeee;
 }
 .green {
   height: 108px;
   background-color: rgba(0, 128, 0, 0.24);
+}
+
+.parent {
+	display: flex;
+}
+
+.son1 {
+  padding: 4px;
+	width: 110px;
+	background-color: #efefef;
+	margin:auto;
+  margin-right: 0px;
+}
+.son2 {
+  padding: 4px;
+	width: 110px;
+	background-color: #efefef;
+	margin:auto;
+  margin-left: 0px;
 }
 </style>

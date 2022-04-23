@@ -63,14 +63,16 @@ import { NTabPane } from 'naive-ui'
   margin-left: -60px;
 }
 .title {
-  margin-top: 6em;
+  text-align:center;
+  margin-top: 8em;
   font-size: 0.5em;
   letter-spacing:0.5em;
 }
 .element-plus-logo {
-  width: 30%;
-  position: absolute; 
   top: 25%; 
-  left: 37%;
+  left: 50%;
+  width: 140px;
+  margin-left: -66px;
+  position: absolute; 
 }
 </style>
