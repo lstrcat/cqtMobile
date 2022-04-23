@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { NModal,NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
-import { NInput,NButton,NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel, NGrid, NGridItem,NGi} from 'naive-ui'
+import { NEmpty,NTable,NInput,NButton,NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel, NGrid, NGridItem,NGi} from 'naive-ui'
 import { apiGetZsInfo } from '../api/zhenghu'
 
 defineProps({
@@ -14,18 +14,20 @@ const getAssetsImage = (name) => {
 const count = ref(0)
 const showModal = ref(false)
 const showModalZhengshu = ref(false)
-const rnumber = ref(null)
+const rnumber = ref(null)   //证书编号
+const zsObj = ref({
+  Has: false
+}) //证书结果
 
-function sub2sub(data, s1, s2) {
+function sub2sub(data, s1, s2, suffix) {
     let n1 = data.indexOf(s1)
     if(n1 > 0) {
     let n2 = data.indexOf(s2, n1 + s1.length)
       if(n2 > 0){
         let cc = data.substring(n1,n2)
       //  console.log(cc)
-        let suffix = "<td style=\"text-align:center;\">"
         let ns = cc.indexOf(suffix)
-        if(ns > 0) {
+        if(ns >= 0) {
           let result = cc.substr(ns + suffix.length, cc.length - ns - suffix.length)
         //  console.log(result)
           return result
@@ -36,17 +38,30 @@ function sub2sub(data, s1, s2) {
 }
 
 function decQueryResult(data) {
-  let Conclusion = sub2sub(data,"Conclusion</td>","</td>")
-  let ReportNumber = sub2sub(data,"Report Number</td>","</td>")
-  let Mass = sub2sub(data,"Total Mass</td>","</td>")
-  let RefIndex = sub2sub(data,"Refractive index</td>","</td>")
-  let Magnif = sub2sub(data,"Magnification Test</td>","</td>")
-  let OptChara = sub2sub(data,"Optical Characteristics</td>","</td>")
-  let Mark = sub2sub(data,"Mark</td>","</td>")
-  let Remarks = sub2sub(data,"Remarks</td>","</td>")
-  let auther = sub2sub(data,"Authorizer</td>","</td>")
+
+  //证书图片
+  let img = sub2sub(data,"<img src=\"https://img","\">", "<img src=\"")
+
+  let sfxItem = "<td style=\"text-align:center;\">"
+
+  let Conclusion = sub2sub(data,"Conclusion</td>","</td>",sfxItem)
+  let ReportNumber = sub2sub(data,"Report Number</td>","</td>",sfxItem)
+  let Mass = sub2sub(data,"Total Mass</td>","</td>",sfxItem)
+  let RefIndex = sub2sub(data,"Refractive index</td>","</td>",sfxItem)
+  let Magnif = sub2sub(data,"Magnification Test</td>","</td>",sfxItem)
+  let OptChara = sub2sub(data,"Optical Characteristics</td>","</td>",sfxItem)
+  let Mark = sub2sub(data,"Mark</td>","</td>",sfxItem)
+  let Remarks = sub2sub(data,"Remarks</td>","</td>",sfxItem)
+  let auther = sub2sub(data,"Authorizer</td>","</td>",sfxItem)
+
+  let found = false
+  if(ReportNumber.length > 0){
+    found = true
+  }
 
   return { 
+    Has : found,
+    Img : img,
     Conclusion: Conclusion, 
     ReportNumber: ReportNumber,
     Mass: Mass,
@@ -70,7 +85,11 @@ const queryNumber = () => {
     let data = res
     let obj = decQueryResult(data)
     console.log(obj)
+    zsObj.value = obj
 	})
+
+  showModal.value = false
+  showModalZhengshu.value = true
 }
 
 </script>
@@ -90,18 +109,73 @@ const queryNumber = () => {
     </n-card>
   </n-modal>
 
+  <n-modal v-model:show="showModalZhengshu" preset="dialog" title="查询结果">
+
+    <div v-if="zsObj.Has == false">
+      <n-empty description="没有查询到结果"></n-empty>
+    </div>
+    <div v-else>
+      <div style="text-align:center;">
+        <n-image width="100" :src="zsObj.Img"/>
+      </div>
+    </div>
+     <n-table :single-line="false" size="small">
+      <tbody>
+        <tr>
+          <td>检测结论<br>Conclusion</td>
+          <td>{{zsObj.Conclusion}}</td>
+        </tr>
+        <tr>
+          <td>证书编号<br>Report Number</td>
+          <td>{{zsObj.ReportNumber}}</td>
+        </tr>
+        <tr>
+          <td>总质量<br>Total Mass</td>
+          <td>{{zsObj.Mass}}</td>
+        </tr>
+        <tr>
+          <td>折射率<br>Refractive index</td>
+          <td>{{zsObj.RefIndex}}</td>
+        </tr>
+        <tr>
+          <td>放大检查<br>Magnification Test</td>
+          <td>{{zsObj.Magnif}}</td>
+        </tr>
+        <tr>
+          <td>光性特征<br>Optical Characteristics</td>
+          <td>{{zsObj.OptChara}}</td>
+        </tr>
+        <tr>
+          <td>托注<br>Mark</td>
+          <td>{{zsObj.Mark}}</td>
+        </tr>    
+        <tr>
+          <td>备注<br>Remarks</td>
+          <td>{{zsObj.Remarks}}</td>
+        </tr> 
+        <tr>
+          <td>签发人<br>Authorizer</td>
+          <td>{{zsObj.auther}}</td>
+        </tr>                                                     
+      </tbody>
+    </n-table>  
+
+        
+  </n-modal>
+
+
   <div class="cards">
   <n-grid x-gap="0" :cols="2">
     <n-gi>
       <div class="cardbtn">
-          <n-button @click="showModal = true">
+          <n-button @click="showModal = true" text>
             证书查询
           </n-button>
       </div>
     </n-gi>
     <n-gi>
       <div class="cardbtn">
-          <n-button @click="showModal = true">
+          <n-button text>
             在线送检
           </n-button>        
       </div>
