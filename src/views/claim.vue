@@ -9,9 +9,9 @@ import { NH1,NH2,NH3,NH4,NH5,NH6 } from 'naive-ui'
         <n-h4 style="color:#7ea08d;">
             中检质技（北京）金银珠宝质量检验中心 
         </n-h4>
-        
-
         <div class="gline"></div>
+        <n-h6 style="color:#737373;">公正性声明</n-h6>
+
         <p>
             中检质技（北京）金银珠宝质量检验中心及其从事检测业务的分支机构（以下简称本中心）是公正第三方珠宝玉石及贵金属检测专业机构。
         </p>
@@ -41,6 +41,7 @@ import { NH1,NH2,NH3,NH4,NH5,NH6 } from 'naive-ui'
     padding: 20px;
 }
 .content > p{
+    color: #767676;
     text-align: left;
     text-indent:2em; 
     padding-bottom:10px;

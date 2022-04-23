@@ -9,9 +9,11 @@ import { NH1,NH2,NH3,NH4,NH5,NH6 } from 'naive-ui'
         <n-h4 style="color:#7ea08d;">
             中检质技（北京）金银珠宝质量检验中心 
         </n-h4>
-        
-
         <div class="gline"></div>
+
+        <n-h6 style="color:#737373;">简介</n-h6>
+
+        
         <p>
             中检质技（北京）金银珠宝质量检验中心，机构总部在北京，英文名称：Technical quality of China Jewelery Quality Testing Center，简称：CQT（中国CQT），经国家市场监管部门按照《检验检测机构资质认定评审准则》的严格审查，依法取得资质认定证书（CMA），可以向社会出具具有证明作用的数据和结果的检验检测机构；同时通过中国合格评定国家认可委员会按照《检测和校准实验室能力认可准则》严格考核认可，取得国家实验室认可证书（CNAS），被列入国际互认组织的机构之一，出具的检验报告和鉴定证书国际认可。        
         </p>
@@ -53,6 +55,7 @@ import { NH1,NH2,NH3,NH4,NH5,NH6 } from 'naive-ui'
     padding: 20px;
 }
 .content > p{
+    color: #767676;
     text-align: left;
     text-indent:2em; 
     padding-bottom:10px;

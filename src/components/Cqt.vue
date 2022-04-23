@@ -32,6 +32,7 @@ const containerRef = ref(null);
         </n-affix>
         <router-view></router-view>
     </div>    
+    
 </div>
 
 
@@ -46,7 +47,6 @@ const containerRef = ref(null);
 }
 
 .container {
-  height: 800px;
   overflow: auto;
 }
 .el-backtop:hover {
@@ -70,7 +70,7 @@ const containerRef = ref(null);
 .el-backtop {
     position: absolute;
     background-color: #fff;
-    top:60px;
+    top:35px;
     width: 60px;
     height: 30px;
     border-radius: 1%;
@@ -86,7 +86,7 @@ const containerRef = ref(null);
 }
 .el-backtop2 {
     position: absolute;
-    top:90px;
+    top:65px;
     background-color: #fff;
     width: 60px;
     height: 30px;
@@ -103,7 +103,7 @@ const containerRef = ref(null);
 }
 .el-backtop3 {
     position: absolute;
-    top:120px;
+    top:95px;
     background-color: #fff;
     width: 60px;
     height: 30px;
