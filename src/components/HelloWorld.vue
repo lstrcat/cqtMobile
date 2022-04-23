@@ -167,17 +167,24 @@ const queryNumber = () => {
   <div class="cards">
   <n-grid x-gap="0" :cols="2">
     <n-gi>
-      <div class="cardbtn">
-          <n-button @click="showModal = true" text>
-            证书查询
-          </n-button>
+      <div class="cardbtn" @click="showModal = true">
+     
+            <div class="cardtitle">
+              <div class="ztitle">证书查询</div>
+              <div class="entitle">QUERY</div>
+            </div>
+            <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
+      
     </n-gi>
     <n-gi>
       <div class="cardbtn">
-          <n-button text>
-            在线送检
-          </n-button>        
+     
+            <div class="cardtitle">
+              <div class="ztitle">在线送检</div>
+              <div class="entitle">CENSORSHIP</div>
+            </div>
+            <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
     </n-gi>
   </n-grid>
@@ -292,14 +299,38 @@ a {
   max-height: 200px;
 }
 .cards{
-  margin: 20px;
+  margin: 10px;
 }
 .cardbtn{
-  width: 140px;
-  height: 80px;
-  border-radius:10px;
+  width: 160px;
+  height: 70px;
+  border-radius:5px;
   border: 1px solid #eeeeee;
-  box-shadow: 0 0 6px rgba(18, 133, 96, 0.12);  
+  box-shadow: 0 0 6px #e0f3f0; 
+  display: flex;
+}
+.cardtitle{
+  margin:auto;
+}
+.ztitle{
+  font-size: larger;
+  color: #6d6d6d;
+}
+.entitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-radius:8px;
+  border: 1px solid #eeeeee;
+  background: #a9d2ad;
+  color: white;
+}
+.cardimg{
+  width: 50px;
+  height: 50px;
+  margin: auto;
 }
 .card{
   margin-top: 10px;
