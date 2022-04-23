@@ -15,6 +15,7 @@ const count = ref(0)
 const showModal = ref(false)
 const showModalZhengshu = ref(false)
 const showModalSongjian = ref(false)
+const showModalImgs = ref(false)
 const rnumber = ref(null)   //证书编号
 const zsObj = ref({
   Has: false
@@ -181,6 +182,13 @@ const queryNumber = () => {
     </n-card>
   </n-modal>
 
+  <n-modal v-model:show="showModalImgs">
+  <n-image
+    width="100"
+    :src="getAssetsImage('yang.png')"
+  />
+  </n-modal>
+
   <div class="cards">
   <n-grid x-gap="0" :cols="2">
     <n-gi>
@@ -270,13 +278,11 @@ const queryNumber = () => {
 
 
 
-  <div class="card">
+  <div class="card" @click="showModalImgs = true">
       <div class="card-label">证书样式</div>
-      <n-image
-        width="300"
-        height="150"
-        object-fit="cover"
-        :src= "getAssetsImage('yang.png')"
+      <img class="card-img"
+        object-fit="scale-down"
+        :src= "getAssetsImage('zsbg.png')"
       />      
   </div>  
     
@@ -351,15 +357,17 @@ a {
   margin: auto;
 }
 .card{
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   border-radius:10px;
-  border: 1px solid #eeeeee;
-  box-shadow: 0 0 6px rgba(18, 133, 96, 0.12);
+ /* border: 1px solid #eeeeee;*/
+}
+.card-img {
+  width: 350px;
 }
 .card-label {
     position: absolute;
-    padding: 20px;
+    padding: 40px;
     height: 30px;
     color: #94aea5;
     display: flex;
