@@ -14,6 +14,7 @@ const getAssetsImage = (name) => {
 const count = ref(0)
 const showModal = ref(false)
 const showModalZhengshu = ref(false)
+const showModalSongjian = ref(false)
 const rnumber = ref(null)   //证书编号
 const zsObj = ref({
   Has: false
@@ -163,6 +164,22 @@ const queryNumber = () => {
         
   </n-modal>
 
+  <n-modal v-model:show="showModalSongjian">
+    <n-card
+      title="在线送检"
+      :bordered="false"
+      role="dialog"
+      aria-modal="true"
+    >
+      请关注下方公众号，使用小程序在线送检
+      <template #footer>
+        <n-icon size="40">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4l96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" fill="currentColor"></path></svg>
+        </n-icon> 
+      </template>      
+     
+    </n-card>
+  </n-modal>
 
   <div class="cards">
   <n-grid x-gap="0" :cols="2">
@@ -178,7 +195,7 @@ const queryNumber = () => {
       
     </n-gi>
     <n-gi>
-      <div class="cardbtn">
+      <div class="cardbtn" @click="showModalSongjian = true">
      
             <div class="cardtitle">
               <div class="ztitle">在线送检</div>
@@ -299,7 +316,8 @@ a {
   max-height: 200px;
 }
 .cards{
-  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .cardbtn{
   width: 160px;
