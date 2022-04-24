@@ -97,14 +97,15 @@ const queryNumber = () => {
 </script>
 
 <template>
-  <n-modal v-model:show="showModal">
+  <n-modal v-model:show="showModal" transform-origin="center">
     <n-card
       title="证书查询"
       :bordered="false"
       role="dialog"
       aria-modal="true"
+      style="width: 300px; position: fixed; left: 50%; top: 25%; margin-left: -150px;"
     >
-      <n-input v-model:value="rnumber" type="text" placeholder="输入证书编号" />
+      <n-input v-model:value="rnumber" type="number" placeholder="输入证书编号" />
       <template #footer>
         <n-button @click="queryNumber">查询</n-button>
       </template>
