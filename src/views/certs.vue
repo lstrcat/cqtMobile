@@ -16,7 +16,7 @@ const getAssetsImage = (name) => {
 
         <n-h6 style="color:#737373;">资质证书概览</n-h6>
         <n-image
-          width="200"
+          height="200"
           :src= "getAssetsImage('zzzs.png')"
         />
         <div class="gline"></div>
@@ -25,13 +25,13 @@ const getAssetsImage = (name) => {
         <div class="parent">
           <div class="son1">
             <n-image
-              width="110"
+              height="110"
               :src= "getAssetsImage('syrz.png')"
             />
           </div>
           <div class="son2">
             <n-image
-            width="110"
+            height="110"
               :src= "getAssetsImage('syrzen.png')"
             />
           </div>

@@ -215,7 +215,7 @@ const queryNumber = () => {
 
 
   <n-image 
-  width="250"
+  height="250"
   :src="getAssetsImage('xcxm.jpg')"
   >
 
@@ -354,13 +354,17 @@ a {
   margin: auto;
 }
 .card{
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 10px;
   border-radius:10px;
- /* border: 1px solid #eeeeee;*/
+/*  border: 1px solid #eeeeee;*/
 }
 .card-img {
-  width: 350px;
+  height: 120px;
 }
 .card-label {
     position: absolute;
