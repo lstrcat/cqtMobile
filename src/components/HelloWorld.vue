@@ -172,13 +172,9 @@ const queryNumber = () => {
       :bordered="false"
       role="dialog"
       aria-modal="true"
+      style="width: 300px; position: fixed; left: 50%; top: 25%; margin-left: -150px;"
     >
-      请关注下方公众号，使用小程序在线送检
-      <template #footer>
-        <n-icon size="40">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4l96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" fill="currentColor"></path></svg>
-        </n-icon> 
-      </template>      
+      跳转到小程序   
      
     </n-card>
   </n-modal>
@@ -338,7 +334,7 @@ a {
   margin:auto;
 }
 .ztitle{
-  font-size: larger;
+  font-size: large;
   color: #6d6d6d;
 }
 .entitle{
@@ -346,7 +342,7 @@ a {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: x-small;
   border-radius:8px;
   border: 1px solid #eeeeee;
   background: #a9d2ad;
