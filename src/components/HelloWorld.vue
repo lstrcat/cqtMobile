@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { NModal,NLayout,NLayoutContent,NLayoutFooter,NLayoutHeader,NLayoutSider } from 'naive-ui'
-import { NEmpty,NTable,NInput,NButton,NCard, NIcon, NDivider, NImage, NCollapse, NCollapseItem, NCarousel, NGrid, NGridItem,NGi} from 'naive-ui'
+import { NEmpty,NTable,NInput,NButton,NCard, NIcon, NDivider, NImage, NImageGroup,NSpace,NCollapse, NCollapseItem, NCarousel, NGrid, NGridItem,NGi} from 'naive-ui'
 import { apiGetZsInfo } from '../api/zhenghu'
 
 defineProps({
@@ -180,15 +180,42 @@ const queryNumber = () => {
   </n-modal>
 
   <n-modal v-model:show="showModalImgs">
-  <n-image
-    width="100"
-    :src="getAssetsImage('yang.png')"
-  />
+    <n-card
+      :bordered="false"
+      role="dialog"
+      aria-modal="true"
+    >
+    <n-image-group>
+      <n-space justify="space-around">
+        <n-image
+          width="100"
+          :src="getAssetsImage('yang1.png')"
+        />
+        <n-image
+          width="100"
+          :src="getAssetsImage('yang2.png')"
+        />
+        <n-image
+          width="100"
+          :src="getAssetsImage('yang3.png')"
+        />
+        <n-image
+          width="100"
+          :src="getAssetsImage('yang4.png')"
+        />
+        <n-image
+          width="100"
+          :src="getAssetsImage('yang5.png')"
+        />                  
+      </n-space>
+    </n-image-group>      
+    </n-card>    
+
   </n-modal>
 
   <div class="cards">
-  <n-grid x-gap="0" :cols="2">
-    <n-gi>
+  
+     <n-space justify="space-around" wrap="false" inline="true">
       <div class="cardbtn" @click="showModal = true">
      
             <div class="cardtitle">
@@ -198,8 +225,8 @@ const queryNumber = () => {
             <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
       
-    </n-gi>
-    <n-gi>
+   
+    
       <div class="cardbtn" @click="showModalSongjian = true">
      
             <div class="cardtitle">
@@ -208,8 +235,8 @@ const queryNumber = () => {
             </div>
             <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
-    </n-gi>
-  </n-grid>
+    </n-space>
+  
   </div>
 
 
@@ -324,7 +351,7 @@ a {
   margin-bottom: 20px;
 }
 .cardbtn{
-  width: 160px;
+  width: 10em;
   height: 70px;
   border-radius:5px;
   border: 1px solid #eeeeee;
@@ -333,6 +360,7 @@ a {
 }
 .cardtitle{
   margin:auto;
+  padding-left: 10px;
 }
 .ztitle{
   font-size: large;
