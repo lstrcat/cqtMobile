@@ -1,28 +1,40 @@
 <template>
-  <div class="article">
+<router-link style="text-decoration:none;" to='/article'>
+  <div class="article" @click="toArticle">
     <div class="article-cover">
       <img :src="article.cover" alt="">
     </div>
     <div class="info">
       <div class="article-title">{{ article && article.title }}</div>
-      <div class="article-time">{{ formatTime }}</div>
       <div class="article-content">
-          <n-ellipsis expand-trigger="click" line-clamp="2" :tooltip="false">
           {{ article.content }}
-          </n-ellipsis>
-        </div>
-    </div>
+      </div>     
+    </div>    
   </div>
+      <div class="footer">
+        <div class="article-author">中检质技</div>
+        <div class="article-time">{{ formatTime }}</div>
+      </div>  
+</router-link>
+   
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { NEllipsis } from 'naive-ui'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
   // 接收父组件传来的 article 对象
 
     const props = defineProps({
         article : {}
+    })
+
+    const toArticle = (() => {
+      router.push({
+        name: 'article'
+      })
     })
 
     const formatTime = computed(() => {
@@ -45,8 +57,7 @@ import { NEllipsis } from 'naive-ui'
 <style lang="scss" scoped>
 .article {
   display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid #dbdbdb;
+  padding: 5px 0;
   &:last-child {
     border: none;
   }
@@ -62,15 +73,30 @@ import { NEllipsis } from 'naive-ui'
     margin-right: 10px;
     > img {
       width: 100%;
+      border-radius: 5px;
     }
   }
-  .article-content, .article-time {
+  .article-content {
     font-size: 14px;
+    color: #76819d;
   }
   .article-time {
-    margin: 10px 0;
-    color: #c5c5c5;
+    color: #c3c8d5;
   }
 }
+
+  .article-author {
+    color: #a0a8ba;
+  }
+  .article-time {
+       text-align: right;
+    color: #a0a8ba;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f7f9fc;
+  }
 </style>
 

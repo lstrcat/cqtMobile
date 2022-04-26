@@ -15,22 +15,22 @@ const containerRef = ref(null);
         :listen-to="() => containerRef"
         >
         <div class="el-backtop">
-            <router-link class="link" to='/brief'>
+            <router-link class="link" :to="{ name: 'brief' }">
             简介
             </router-link>
         </div>
         <div class="el-backtop2">
-            <router-link class="link" to='/certs'>
+            <router-link class="link" :to="{ name: 'certs' }">
             资质证书
             </router-link>
         </div>
         <div class="el-backtop3">
-            <router-link class="link" to='/claim'>
+            <router-link class="link" :to="{ name: 'claim' }">
             公正性声明
             </router-link>
         </div>
         </n-affix>
-        <router-view></router-view>
+        <router-view name="cqt"></router-view>
     </div>    
     
 </div>

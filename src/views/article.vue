@@ -1,6 +1,6 @@
 <template>
   <p>index</p>
-  <button @click="toHome">toHome</button>
+  <button @click="toHome">这是文章详情页面</button>
 </template>
 <script>
 import { useRouter } from 'vue-router'
