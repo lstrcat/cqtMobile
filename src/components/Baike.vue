@@ -5,23 +5,22 @@
   </div>
 </template>
 
-<script>
+<script setup>
 // 引入组件
 import Article from './Article.vue';
+import { NButton } from 'naive-ui'
+
+const emit = defineEmits(["change"]);
+const handleClick = () => {
+  // 必须经过defineEmits声明，不然方法无效！
+  emit("change", "home");
+};
 
 const getAssetsImage = (name) => {
   return new URL(`/src/assets/images/${name}`, import.meta.url).href
 }
 
-export default {
-  name: 'app',
-  // 注册组件
-  components: {
-    Article
-  },
-  data: function() {
-    return {
-      articleList: [
+const  articleList = [
         {
           cover: getAssetsImage('cv1.jpg'),
           title: '压制琥珀的六大特征',
@@ -36,10 +35,7 @@ export default {
           content:
             '红宝石是色美、透明的宝石级刚玉。红宝石的英文名称是Ruby，来源于拉丁文“Ruber”，意思是红色。'
         }
-      ]
-    };
-  }
-};
+  ]
 </script>
 
 <style lang="scss">
