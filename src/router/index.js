@@ -44,9 +44,9 @@ const router = createRouter({
     },
     {
       path: '/article',
-      components: {
+      components:  {
         default: article
-      }  
+      }
     }
   ]
 })

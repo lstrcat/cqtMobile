@@ -1,6 +1,6 @@
 <template>
 <router-link style="text-decoration:none;" to='/article'>
-  <div class="article" @click="toArticle">
+  <div class="article">
     <div class="article-cover">
       <img :src="article.cover" alt="">
     </div>
@@ -23,7 +23,6 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
 
   // 接收父组件传来的 article 对象
 
@@ -31,11 +30,6 @@ const router = useRouter()
         article : {}
     })
 
-    const toArticle = (() => {
-      router.push({
-        name: 'article'
-      })
-    })
 
     const formatTime = computed(() => {
     
