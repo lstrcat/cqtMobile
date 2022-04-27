@@ -34,8 +34,7 @@ const goBack = (name) => {
 }
 
 div > p{
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 10px;
   text-align: left;
   text-indent:2em; 
 }
