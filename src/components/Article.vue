@@ -1,5 +1,5 @@
 <template>
-<router-link style="text-decoration:none;" to='/article'>
+<router-link style="text-decoration:none;" :to="{name:'Detail',params:{'title':article.title, 'content': article.content}}">
   <div class="article">
     <div class="article-cover">
       <img :src="article.cover" alt="">
@@ -7,7 +7,9 @@
     <div class="info">
       <div class="article-title">{{ article && article.title }}</div>
       <div class="article-content">
+        <n-ellipsis :line-clamp="2">
           {{ article.content }}
+        </n-ellipsis>  
       </div>     
     </div>    
   </div>
@@ -22,6 +24,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { NEllipsis } from 'naive-ui'
 
 
   // 接收父组件传来的 article 对象
