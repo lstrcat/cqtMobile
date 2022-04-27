@@ -7,9 +7,7 @@
     <div class="info">
       <div class="article-title">{{ article && article.title }}</div>
       <div class="article-content">
-        <n-ellipsis :line-clamp="2">
-          {{ article.content }}
-        </n-ellipsis>  
+        {{ brief }}
       </div>     
     </div>    
   </div>
