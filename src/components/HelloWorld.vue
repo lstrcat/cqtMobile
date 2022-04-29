@@ -215,7 +215,6 @@ const queryNumber = () => {
 
   <div class="cards">
   
-     <n-space justify="space-around" wrap="false" inline="true">
       <div class="cardbtn" @click="showModal = true">
      
             <div class="cardtitle">
@@ -224,9 +223,6 @@ const queryNumber = () => {
             </div>
             <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
-      
-   
-    
       <div class="cardbtn" @click="showModalSongjian = true">
      
             <div class="cardtitle">
@@ -235,8 +231,7 @@ const queryNumber = () => {
             </div>
             <img class="cardimg" :src="getAssetsImage('query.png')" />
       </div>
-    </n-space>
-  
+   
   </div>
 
 
@@ -366,17 +361,20 @@ a {
 .cards{
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .cardbtn{
-  width: 10em;
+  width: 11em;
   height: 70px;
   border-radius:5px;
   border: 1px solid #eeeeee;
   box-shadow: 0 0 6px #e0f3f0; 
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .cardtitle{
-  margin:auto;
   padding-left: 10px;
 }
 .ztitle{
@@ -384,9 +382,6 @@ a {
   color: #6d6d6d;
 }
 .entitle{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
   font-size: x-small;
   border-radius:8px;
