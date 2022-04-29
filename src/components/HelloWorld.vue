@@ -263,45 +263,39 @@ const queryNumber = () => {
     >
   </n-carousel>
 
-
-  <div style="margin-top:20px;">
-    <router-link style="text-decoration:none;" to='/page1'>
-      <n-card :bordered="false" content-style="padding: 0;" header-style="padding: 0;">
-      <n-layout>
-        <n-layout-header>我们的优势</n-layout-header>
-        <n-layout has-sider>
-          <n-layout-sider >
-            OUR ADVANTAGES
-          </n-layout-sider>
-          <n-layout-content >
-            <n-icon size="20" :depth="3">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4l-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" fill="currentColor"></path></svg>
-            </n-icon>   
-          </n-layout-content>
-        </n-layout>
-      </n-layout>   
-      </n-card> 
-    </router-link>
-    <n-divider />
-    <router-link style="text-decoration:none;" to='/page2'>
-      <n-card :bordered="false" content-style="padding: 0;" header-style="padding: 0;">
-      <n-layout>
-        <n-layout-header>关于我们</n-layout-header>
-        <n-layout has-sider>
-          <n-layout-sider >
-            ABOUT US
-          </n-layout-sider>
-          <n-layout-content >
-            <n-icon size="20" :depth="3">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4l-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" fill="currentColor"></path></svg>
-            </n-icon>          
-          </n-layout-content>
-        </n-layout>
-      </n-layout>  
-      </n-card>
-    </router-link>
+  <router-link style="text-decoration:none;" to='/page1'>
+  <div class="fier">
+    <div class="leftitem">
+      <div class="leftbar"></div>
+      <div class="lefttext">
+        <div style="color: #458a6e;">我们的优势</div>
+        <div style="color: #666666; font-size:small;">OUR ADVANTAGES</div>
+      </div>
+    </div>
+    <div class="rightarrow">
+      <n-icon size="20" :depth="3">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4l-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" fill="currentColor"></path></svg>
+      </n-icon>      
+    </div>
   </div>
-
+  </router-link>
+  <n-divider />
+  <router-link style="text-decoration:none;" to='/page1'>
+  <div class="fier">
+    <div class="leftitem">
+      <div class="leftbar"></div>
+      <div class="lefttext">
+        <div style="color: #458a6e;">关于我们</div>
+        <div style="color: #666666;font-size:small;">ABOUT US</div>
+      </div>
+    </div>
+    <div class="rightarrow">
+      <n-icon size="20" :depth="3">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4l-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" fill="currentColor"></path></svg>
+      </n-icon>      
+    </div>
+  </div>
+  </router-link>
 
   <div class="card" @click="showModalImgs = true">
       <div class="card-label">证书样式</div>
@@ -318,6 +312,29 @@ const queryNumber = () => {
 a {
   color: #458a6e;
 }
+
+.fier{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+}
+.leftbar{
+  width: 5px;
+  height: 70%;
+  background-color: #7d9c91;
+  border-radius: 5px;
+}
+.lefttext{
+  margin-left: 20px;
+}
+.leftitem{
+  display: flex;
+  text-align: left;
+
+  
+}
+
 .n-layout-header{
   text-align: left;
   font-size: large;
