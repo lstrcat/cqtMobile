@@ -258,6 +258,7 @@ const queryNumber = () => {
     >
   </n-carousel>
 
+  <br />
   <router-link style="text-decoration:none;" to='/page1'>
   <div class="fier">
     <div class="leftitem">
@@ -309,14 +310,13 @@ a {
 }
 
 .fier{
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   font-size: large;
 }
 .leftbar{
   width: 5px;
-  height: 70%;
+  height: 60%;
   background-color: #7d9c91;
   border-radius: 5px;
 }
@@ -326,7 +326,7 @@ a {
 .leftitem{
   display: flex;
   text-align: left;
-
+  align-items: center;
   
 }
 
