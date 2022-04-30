@@ -20,18 +20,17 @@ const getAssetsImage = (name) => {
           :src= "getAssetsImage('zzzs.png')"
         />
         <div class="gline"></div>
-        <p></p>
 
         <div class="parent">
           <div class="son1">
             <n-image
-              height="110"
+              width="108"
               :src= "getAssetsImage('syrz.png')"
             />
           </div>
           <div class="son2">
             <n-image
-            height="110"
+            width="108"
               :src= "getAssetsImage('syrzen.png')"
             />
           </div>
@@ -65,20 +64,17 @@ const getAssetsImage = (name) => {
 
 .parent {
 	display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .son1 {
-  padding: 4px;
-	width: 110px;
+  width: 110px;
 	background-color: #efefef;
-	margin:auto;
-  margin-right: 0px;
 }
 .son2 {
-  padding: 4px;
-	width: 110px;
+  width: 110px;
 	background-color: #efefef;
-	margin:auto;
-  margin-left: 0px;
 }
 </style>
