@@ -5,43 +5,66 @@ const routerHistory = createWebHashHistory ()
 const jianjie = () => import("../views/briefInts.vue")
 const zhengshu = () => import("../views/certs.vue")
 const claim = () =>import("../views/claim.vue")
+const cqt = () =>import("../components/Cqt.vue")
+
+const hello = () =>import("../components/HelloWorld.vue")
+
 const home = () => import("../views/home.vue")
 const article = () => import("../views/article.vue")
 
 const router = createRouter({
   history: routerHistory,
-  routes: [
+  routes: [   
     {
-      path: '/',
-      // 当访问 '/'的时候 路由重定向 到新的地址 '/home'
-      redirect: '/brief'
-    },    
+      path: "/",
+      name: "index",
+      redirect: '/home'
+    },
     {
       component: home,
       children:[
         {
-          path: '/brief',
-          name: 'brief',
+          path: '/home',
+          name: 'home',
           components: {
-            cqt: jianjie
+            qr2cqt: hello
           }
         },
         {
-          path: '/certs',
-          name: 'certs',
+          path: '/page1',
+          name: 'page1',
           components: {
-            cqt: zhengshu
-          }
+            qr2cqt: cqt
+          },
+          redirect: '/brief',
+          children:[
+            {
+              path: '/brief',
+              name: 'brief',
+              components: {
+                renshi: jianjie
+              }
+            },
+            {
+              path: '/certs',
+              name: 'certs',
+              components: {
+                renshi: zhengshu
+              }
+            },
+            {
+              path: '/claim',
+              name: 'claim',
+              components: {
+                renshi: claim
+              }
+            }
+          ]       
         },
-        {
-          path: '/claim',
-          name: 'claim',
-          components: {
-            cqt: claim
-          }
-        }
+
       ]
     },
+    
     {
       name: 'Detail',
       path: '/article',

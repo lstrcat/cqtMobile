@@ -258,23 +258,6 @@ const queryNumber = () => {
     >
   </n-carousel>
 
-  <br />
-  <router-link style="text-decoration:none;" to='/page1'>
-  <div class="fier">
-    <div class="leftitem">
-      <div class="leftbar"></div>
-      <div class="lefttext">
-        <div style="color: #458a6e;">我们的优势</div>
-        <div style="color: #666666; font-size:small;">OUR ADVANTAGES</div>
-      </div>
-    </div>
-    <div class="rightarrow">
-      <n-icon size="20" :depth="3">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4l-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" fill="currentColor"></path></svg>
-      </n-icon>      
-    </div>
-  </div>
-  </router-link>
   <n-divider />
   <router-link style="text-decoration:none;" to='/page1'>
   <div class="fier">

@@ -2,7 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref,getCurrentInstance  } from 'vue'
-import HelloWorld from '../components/HelloWorld.vue'
+import Hello from '../components/HelloView.vue'
 import Cqt from '../components/Cqt.vue'
 import Baike from '../components/Baike.vue'
 import Contact from '../components/Contact.vue'
@@ -31,12 +31,9 @@ const tabv = getCurrentInstance().appContext.config.globalProperties.$tabv
 
   <n-card :bordered="false" title="" style="margin-bottom: 16px">
     <n-tabs default-value="home" v-model:value="tabv" justify-content="space-evenly" type="line">
-      <n-tab-pane name="home" tab="主页">
-        <HelloWorld msg="Hello Vue 3 + Vite" />
+      <n-tab-pane name="home" tab="认识CQT">
+        <Hello />
       </n-tab-pane>      
-      <n-tab-pane name="oasis" tab="认识CQT">
-        <Cqt />
-      </n-tab-pane>
       <n-tab-pane name="wiki" tab="科普百科">
         <Baike @change="childChange" />
       </n-tab-pane>
